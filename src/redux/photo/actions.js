@@ -12,4 +12,4 @@ export const photoActions = {
 		type: photoActions.ADD_PHOTO_FULFILLED,
 		payload: photo
 	})
-}
+};

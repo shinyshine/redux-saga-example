@@ -1,36 +1,33 @@
 // react
-import React from 'react'
-import ReactDom from 'react-dom'
+import React from 'react';
+import ReactDom from 'react-dom';
 
 // redux
-import { Provider } from 'react-redux'
-import configureStore from './redux/store'
-const store = configureStore()
-
+import { Provider } from 'react-redux';
 
 // router
-import { Router } from 'react-router-dom'
-import createHistory from 'history/createBrowserHistory'
-const browserHistory = createHistory()
-
+import { Router } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
+import configureStore from './redux/store';
 
 // component
-import Main from './views/pages/main'
-const rootElement = document.getElementById('app')
+import Main from './views/pages/main';
+
+const store = configureStore();
+const browserHistory = createHistory();
+const rootElement = document.getElementById('app');
 
 function render(Component) {
-	ReactDom.render(
+  ReactDom.render(
 		<Provider store={store}>
 			<Router history={browserHistory}>
 				<div>
-					<Component/>
+					<Component />
 				</div>
 			</Router>
 		</Provider>,
-		rootElement
-	)
+		rootElement,
+  );
 }
 
-render(Main)
-
-
+render(Main);
